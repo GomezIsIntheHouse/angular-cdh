@@ -26,6 +26,11 @@ const routes: Routes = [
     component: AuthComponent,
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
+  {
+    path:'cursos',
+    component: CursosComponent,
+    loadChildren: ()=> import('./dashboard/pages/cursos/cursos.module').then((m)=> m.CursosModule)
+  },
 
   // RUTAS INDEFINIDAS....
   {

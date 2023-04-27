@@ -16,6 +16,7 @@ export class AuthGuard implements CanActivate {
       .pipe(
         map((usuarioAutenticado) => {
           if (!usuarioAutenticado) {
+            //si el usuario no esta logueado, el sistema dirigirá hacia auth/login
             return this.router.createUrlTree(['auth', 'login'])
           } else {
             return true;

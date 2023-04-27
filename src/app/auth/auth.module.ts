@@ -31,10 +31,12 @@ const routes: Routes = [
   declarations: [
     AuthComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    //pipes module se importa para recibir las funcionalidades del modulo de pipes
     PipesModule,
     RouterModule.forChild(routes),
     MatCardModule,

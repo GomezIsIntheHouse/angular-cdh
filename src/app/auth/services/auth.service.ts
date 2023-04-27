@@ -40,7 +40,7 @@ export class AuthService {
   }
 
   verificarStorage(): void {
-    const storageValor = localStorage.getItem('auth-user');
+    const storageValor = localStorage.getItem('auth-user');//toma el valor de la clave auth-user
     if (storageValor) {
       const usuario = JSON.parse(storageValor);
       this.authUser$.next(usuario);

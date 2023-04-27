@@ -30,9 +30,13 @@ import { AdminGuard } from '../auth/guards/admin.guard';
     CursosModule,
     RouterModule.forChild([
       {
-        // http://localhost:XXXX/dashboard/estudiantes
+        
         path: 'estudiantes',
+        //metodo 1 : lazy load
         loadChildren: () => import('./pages/alumnos/alumnos.module').then((m) => m.AlumnosModule)
+
+        //metodo 2 : carga ansiosa
+
         // children: [
         //   {
         //     // dashboard/estudiantes
@@ -48,7 +52,9 @@ import { AdminGuard } from '../auth/guards/admin.guard';
       },
       {
         path: 'cursos',
-        component: CursosComponent,
+        loadChildren: () => import('./pages/cursos/cursos.module').then((m) => m.CursosModule)
+
+        
       }
     ])
   ],

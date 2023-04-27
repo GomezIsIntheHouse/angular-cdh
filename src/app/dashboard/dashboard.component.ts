@@ -26,6 +26,7 @@ export class DashboardComponent implements OnDestroy {
     private router: Router
   ) {
 
+    //solicitud al servicio de authService
     this.authUser$ = this.authService.obtenerUsuarioAutenticado()
 
     // this.authService.obtenerUsuarioAutenticado()
