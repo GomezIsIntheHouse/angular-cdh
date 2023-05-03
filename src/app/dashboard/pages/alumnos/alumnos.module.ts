@@ -34,16 +34,16 @@ import { AdminGuard } from 'src/app/auth/guards/admin.guard';
     ReactiveFormsModule,
     AlumnosRoutingModule,
     //BUENA PRACTICA ES CREAR UN MODULO APARTE PARA RUTAS, POR EJ ALUMNOS-ROUTING.MODULE.TS
-    // RouterModule.forChild([
-    //   {
-    //     path: '',
-    //     component: AlumnosComponent
-    //   },
-    //   {
-    //     path: ':id',
-    //     component: AlumnoDetalleComponent,
-    //   },
-    // ]),
+    RouterModule.forChild([
+      {
+        path: '',
+        component: AlumnosComponent
+      },
+      {
+        path: ':id',
+        component: AlumnoDetalleComponent,
+      },
+    ]),
   ],
   exports: [
     AlumnosComponent

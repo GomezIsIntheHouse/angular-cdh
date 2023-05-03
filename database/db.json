@@ -1,0 +1,31 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "jose",
+      "apellido": "Gomez",
+      "email": "josegomez@mail.com",
+      "password": "12345",
+      "token": "123@@**12abcjgasd",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "nombre": "jorge",
+      "apellido": "Gamuzza",
+      "email": "jorgegamuzza@mail.com",
+      "password": "12345",
+      "token": "4455666@@**//asdasd",
+      "role": "admin"
+    },
+    {
+      "id": 3,
+      "nombre": "MUNI",
+      "apellido": "RARI",
+      "email": "muy-rari@mail.com",
+      "password": "12345",
+      "token": "555al8777*///*/",
+      "role": "admin"
+    }
+  ]
+}

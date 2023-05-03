@@ -7,6 +7,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { CursosModule } from './dashboard/pages/cursos/cursos.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CursosModule } from './dashboard/pages/cursos/cursos.module';
     BrowserModule,
     BrowserAnimationsModule,
     CoreModule,
+    HttpClientModule,
     // DashboardModule,
     AppRoutingModule,
   ],

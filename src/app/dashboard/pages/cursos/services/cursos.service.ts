@@ -76,25 +76,25 @@ export class CursosService {
       .pipe(
         take(1),
       )
-      // .subscribe({
-      //   next: (cursos) => {
+      .subscribe({
+        next: (cursos) => {
 
-      //     const cursosActualizados = cursos.map((curso) => {
-      //       if (curso.id === cursoId) {
-      //         return {
-      //           ...curso,
-      //           ...actualizacion,
-      //         }
-      //       } else {
-      //         return curso;
-      //       }
-      //     })
+          const cursosActualizados = cursos.map((curso) => {
+            if (curso.id === cursoId) {
+              return {
+                ...curso,
+                ...actualizacion,
+              }
+            } else {
+              return curso;
+            }
+          })
 
-      //     this.cursos$.next(cursosActualizados);
-      //   },
-      //   complete: () => {},
-      //   error: () => {}
-      // });
+          this.cursos$.next(cursosActualizados);
+        },
+        complete: () => {},
+        error: () => {}
+      });
 
     return this.cursos$.asObservable();
   }
