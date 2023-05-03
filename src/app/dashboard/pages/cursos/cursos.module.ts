@@ -34,7 +34,7 @@ import { RouterModule } from '@angular/router';
     MatNativeDateModule,
     RouterModule.forChild([
       {
-        path:'cursos',
+        path:'',
         component: CursosComponent
       }
     ])
