@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { Observable, BehaviorSubject, map } from 'rxjs';
 import { Usuario } from 'src/app/core/models';
 import { enviroment } from 'src/environments/environments';
+import { AppState } from '../store';
+import { Store } from '@ngrx/store';
+import { EstablecerUsuarioAutenticado } from '../store/auth/auth.action';
 
 export interface LoginFormValue {
   email: string;
@@ -19,27 +22,21 @@ export class AuthService {
 
   constructor(
     private router: Router, 
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private store:Store<AppState>
     ) { }
 
   obtenerUsuarioAutenticado(): Observable<Usuario | null> {
     return this.authUser$.asObservable();
   }
 
-  login(formValue: LoginFormValue): void {
-    // const usuario: Usuario = {
-    //   id: 1,
-    //   nombre: 'MOCK',
-    //   apellido: 'USER',
-    //   email: formValue.email,
-    //   role: 'user'
-    // }
-    // localStorage.setItem('auth-user', JSON.stringify(usuario));
+  establecerUsuarioAutenticado(usuario: Usuario){
     // this.authUser$.next(usuario);
-    // this.router.navigate(['dashboard']);
+    this.store.dispatch(EstablecerUsuarioAutenticado({payload: usuario}))
+  }
 
-
-
+  login(formValue: LoginFormValue): void {
+    
     this.httpClient.get<Usuario[]>(`${enviroment.baseApiUrl}/usuarios`,{
       params:{
         ...formValue
