@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { actionReducerMap } from './auth/store';
+import { EffectsModule } from '@ngrx/effects';
 
 
 
@@ -26,8 +27,10 @@ import { actionReducerMap } from './auth/store';
     HttpClientModule,
    
     AppRoutingModule,
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    //solucion, intercambiar las lineas 29 y 30
     StoreModule.forRoot(actionReducerMap, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    EffectsModule.forRoot([]),
     
   ],
   providers: [],

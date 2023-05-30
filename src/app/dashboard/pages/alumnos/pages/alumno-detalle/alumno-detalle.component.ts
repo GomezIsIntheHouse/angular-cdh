@@ -19,7 +19,7 @@ export class AlumnoDetalleComponent implements OnDestroy {
     private activatedRoute: ActivatedRoute,
     private alumnosService: AlumnosService,
   ) {
-    this.alumnosService.obtenerAlumnoPorId(parseInt(this.activatedRoute.snapshot.params['id']))
+    this.alumnosService.obtenerAlumnoPorId(parseInt(this.activatedRoute.snapshot.params[ 'id' ]))
       .pipe(takeUntil(this.destroyed$))
       .subscribe((alumno) => this.alumno = alumno);
   }

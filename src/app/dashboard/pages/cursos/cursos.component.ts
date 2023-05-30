@@ -4,7 +4,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Curso } from './models';
 import { MatDialog } from '@angular/material/dialog';
 import { AbmCursosComponent } from './components/abm-cursos/abm-cursos.component';
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { Usuario } from 'src/app/core/models';
 import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-cursos',
@@ -12,22 +15,35 @@ import { Observable } from 'rxjs';
   styleUrls: ['./cursos.component.scss'],
 })
 export class CursosComponent implements OnInit {
+
+  authUser$!: Observable< Usuario | null >;
+
   dataSource = new MatTableDataSource();
 
   displayedColumns = [
     'id',
-    'nombre',
     'fecha_inicio',
     'fecha_fin',
     'detalle',
     'editar',
     'eliminar',
   ];
+  
+  displayedColumns2 = [
+    'id',
+    'fecha_inicio',
+    'fecha_fin',
+    'detalle',
+    
+  ];
 
   constructor(
     private cursosService: CursosService,
-    private dialog: MatDialog
-  ) {}
+    private dialog: MatDialog,
+    private authService: AuthService
+  ) {
+    this.authUser$ = this.authService.obtenerUsuarioAutenticado()
+  }
 
   ngOnInit(): void {
     this.cursosService.obtenerCursos().subscribe({

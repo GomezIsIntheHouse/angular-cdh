@@ -1,4 +1,4 @@
-<div class="mb-3">
+<div class="mb-3" *ngIf="(authUser$ | async)?.role == 'admin' ">
   <button (click)="crearCurso()" color="primary" mat-flat-button>
     <mat-icon>add</mat-icon>
     Agregar Curso
@@ -11,7 +11,7 @@
 </mat-form-field>
 
 
-<table mat-table [dataSource]="dataSource">
+<table mat-table [dataSource]="dataSource" *ngIf="(authUser$ | async)?.role == 'admin' ">
 
   <!-- Id Column -->
   <ng-container matColumnDef="id">
@@ -19,13 +19,7 @@
     <td mat-cell *matCellDef="let curso"> {{curso.id}} </td>
   </ng-container>
 
-  <!-- Nombre Column -->
-  <ng-container matColumnDef="nombre">
-    <th mat-header-cell *matHeaderCellDef>Nombre completo</th>
-    <td mat-cell *matCellDef="let curso">
-      {{ curso.nombre }}
-    </td>
-  </ng-container>
+
 
   <!-- Fecha de Registro Column -->
   <ng-container matColumnDef="fecha_inicio">
@@ -71,4 +65,41 @@
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<table mat-table [dataSource]="dataSource" *ngIf="(authUser$ | async)?.role !== 'admin' ">
+
+  <!-- Id Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let curso"> {{curso.id}} </td>
+  </ng-container>
+
+
+
+  <!-- Fecha de Registro Column -->
+  <ng-container matColumnDef="fecha_inicio">
+    <th mat-header-cell *matHeaderCellDef>Fecha de inicio</th>
+    <td mat-cell *matCellDef="let curso"> {{curso.fecha_inicio | date: 'dd/MM/YYYY'  }} </td>
+  </ng-container>
+
+  <!-- Fecha de Registro Column -->
+  <ng-container matColumnDef="fecha_fin">
+    <th mat-header-cell *matHeaderCellDef>Fecha de fin</th>
+    <td mat-cell *matCellDef="let curso"> {{curso.fecha_fin | date: 'dd/MM/YYYY'  }} </td>
+  </ng-container>
+
+  <!-- Detalle Column -->
+  <ng-container matColumnDef="detalle">
+    <th mat-header-cell *matHeaderCellDef>Detalle</th>
+    <td mat-cell *matCellDef="let curso">
+      <button mat-icon-button  (click)="irAlDetalle(curso.id)">
+        <mat-icon>visibility</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+ 
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
 </table>

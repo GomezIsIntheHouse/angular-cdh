@@ -1,12 +1,19 @@
+import { Subject } from "../../subject-models";
+
+
+
 export interface Curso {
   id: number;
-  nombre: string;
+  subjectId: number;
   fecha_inicio: Date;
   fecha_fin: Date;
 }
+export interface CursoWithSubject extends Curso {
+  subject: Subject;
+}
 
 export interface CrearCursoPayload {
-  nombre: string;
+  subjectId: number;
   fecha_inicio: Date;
   fecha_fin: Date;
 }

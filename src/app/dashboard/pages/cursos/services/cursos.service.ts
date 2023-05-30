@@ -1,23 +1,25 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map, take } from 'rxjs';
-import { CrearCursoPayload, Curso } from '../models';
+import { CrearCursoPayload, Curso, CursoWithSubject } from '../models';
+import { HttpClient } from '@angular/common/http';
+import { enviroment } from 'src/environments/environments';
 
 const CURSOS_MOCKS: Curso[] = [
   {
     id: 1,
-    nombre: 'Angular',
+    subjectId: 3,
     fecha_fin: new Date(),
     fecha_inicio: new Date(),
   },
   {
     id: 2,
-    nombre: 'Javascript',
+    subjectId: 3,
     fecha_fin: new Date(),
     fecha_inicio: new Date(),
   },
   {
     id: 3,
-    nombre: 'Desarrollo Web',
+    subjectId: 3,
     fecha_fin: new Date(),
     fecha_inicio: new Date(),
   },
@@ -26,12 +28,13 @@ const CURSOS_MOCKS: Curso[] = [
 @Injectable({
   providedIn: 'root',
 })
+
 export class CursosService {
   private cursos$ = new BehaviorSubject<Curso[]>(
     []
   );
 
-  constructor() {}
+  constructor(private httpClient:HttpClient) {}
 
   obtenerCursos(): Observable<Curso[]> {
     this.cursos$.next(CURSOS_MOCKS);
@@ -45,28 +48,30 @@ export class CursosService {
       )
   }
 
-  crearCurso(payload: CrearCursoPayload): Observable<Curso[]> {
-    this.cursos$
-      .pipe(
-        take(1)
-      )
-      .subscribe({
-        next: (cursos) => {
-          this.cursos$.next([
-            ...cursos,
-            {
-              id: cursos.length + 1,
-              ...payload,
-            },
-          ]);
-        },
-        complete: () => {},
-        error: () => {}
-      });
+  obtenerCursosWithSubject(): Observable<CursoWithSubject[]> {
+    return this.httpClient.get<CursoWithSubject[]>(
+      `${enviroment.baseApiUrl}/courses?_expand=subject`
+    );
+  }
+  
+  crearCurso(payload: CrearCursoPayload): Observable <Curso[]> {
+    this.cursos$.pipe(take(1)).subscribe({
+      next: (cursos) => {
+        this.cursos$.next([
+          ...cursos,
+          {
+            id: cursos.length + 1,
+            ...payload,
+          },
+        ]);
+      },
+      complete: () => {},
+      error: () => {},
+    });
 
-      // then => next
-      // catch => error
-      // finally => complete
+    // then => next
+    // catch => error
+    // finally => complete
 
     return this.cursos$.asObservable();
   }

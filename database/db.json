@@ -1,31 +1,103 @@
 {
-  "usuarios": [
+  "users": [
     {
       "id": 1,
-      "nombre": "j",
+      "nombre": "Julian",
       "apellido": "Gomez",
       "email": "jgomez@mail.com",
       "password": "12345",
-      "token": "123@@**12abcjgasd",
+      "token": "hjsdfJHFDSAFMsaDsan12sdanjjadashj3FDBEWH",
       "role": "admin"
+    },
+    {
+      "nombre": "Facundo",
+      "apellido": "Perez",
+      "email": "juan@email.com",
+      "password": "123456",
+      "token": "nmdsgfjhuMDKSAFJASDK327SJDKANjsadnsah",
+      "role": "user",
+      "id": 4
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "subjectId": 1,
+      "fecha_fin": "2023-04-27T01:27:59.631Z",
+      "fecha_inicio": "2023-04-27T01:27:59.631Z"
     },
     {
       "id": 2,
-      "nombre": "jorge",
-      "apellido": "Gamuzza",
-      "email": "jorgegamuzza@mail.com",
-      "password": "12345",
-      "token": "4455666@@**//asdasd",
-      "role": "admin"
+      "subjectId": 2,
+      "fecha_fin": "2023-04-27T01:27:59.631Z",
+      "fecha_inicio": "2023-04-27T01:27:59.631Z"
     },
     {
       "id": 3,
-      "nombre": "MUNI",
-      "apellido": "RARI",
-      "email": "muy-rari@mail.com",
-      "password": "12345",
-      "token": "555al8777*///*/",
-      "role": "admin"
+      "subjectId": 2,
+      "fecha_fin": "2023-04-27T01:27:59.631Z",
+      "fecha_inicio": "2023-04-27T01:27:59.631Z"
+    }
+  ],
+  "subjects": [
+    {
+      "id": 1,
+      "nombre": "Angular",
+      "description": "Curso de Angular con duración de 2 meses."
+    },
+    {
+      "id": 2,
+      "nombre": "Desarrollo Web"
+    },
+    {
+      "id": 3,
+      "nombre": "Desarrollo Javascript"
+    }
+  ],
+  "inscriptions": [
+    {
+      "id": 2,
+      "subjectId": 2,
+      "studentId": 1,
+      "courseId": 2
+    },
+    {
+      "subjectId": 1,
+      "studentId": 3,
+      "courseId": 1,
+      "id": 3
+    },
+    {
+      "subjectId": 1,
+      "studentId": 3,
+      "courseId": 1,
+      "id": 4
+    },
+    {
+      "subjectId": 2,
+      "studentId": 1,
+      "courseId": 2,
+      "id": 5
+    },
+    {
+      "subjectId": 1,
+      "studentId": 3,
+      "courseId": 1,
+      "id": 6
+    }
+  ],
+  "students": [
+    {
+      "id": 3,
+      "nombre": "Naomi",
+      "apellido": "Yokuma",
+      "fecha_registro": "2023-04-27T01:27:59.631Z"
+    },
+    {
+      "id": 1,
+      "nombre": "Ekeko",
+      "apellido": "Cochina",
+      "fecha_registro": "2023-04-27T01:27:59.631Z"
     }
   ]
 }

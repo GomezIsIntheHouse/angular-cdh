@@ -28,7 +28,7 @@ export class DashboardComponent implements OnDestroy {
 
     //solicitud al servicio de authService
     this.authUser$ = this.authService.obtenerUsuarioAutenticado()
-
+    
     // this.authService.obtenerUsuarioAutenticado()
     //   .pipe(
     //     // tomar hasta que el componente se destruya

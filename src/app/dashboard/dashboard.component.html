@@ -3,11 +3,17 @@
   <!-- SIDEBAR -->
   <mat-drawer [opened]="true" #drawer class="example-sidenav" mode="side">
 
+   
 
-    <img width="50" height="50" src="../../assets/img/avatar.svg">
-
-    <p>{{ (authUser$ | async)?.nombre }}</p>
-    <p>{{ (authUser$ | async)?.email }}</p>
+      <img width="50" height="50" src="src\assets\img\img-login.jpg">
+      <div class="profile">
+        
+  
+        <p style="margin-left:3% ;">{{ (authUser$ | async)?.nombre }}</p>
+        <p style="margin-left:3% ;"> {{ (authUser$ | async)?.email }}</p>
+        <p style="margin-left:3% ;">{{ (authUser$ | async)?.role }}</p>
+      </div>
+   
 
 
     <mat-nav-list>

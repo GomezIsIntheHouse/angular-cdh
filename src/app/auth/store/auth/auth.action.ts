@@ -5,3 +5,5 @@ export const EstablecerUsuarioAutenticado = createAction(
     '[auth] Establecer usuario',
     props<{payload: Usuario}>(),
 )
+
+export const QuitarUsuarioAutenticado = createAction('[auth] Quitar usuario')
