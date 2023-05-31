@@ -20,6 +20,7 @@
       <a
         [routerLink]="link.path"
         mat-list-item
+       
         *ngFor="let link of links"
       >
         <mat-icon *ngIf="link.icon">{{ link.icon }}</mat-icon> {{ link.title }}
@@ -32,11 +33,7 @@
       </a>
     </mat-nav-list>
 
-    <!-- <p>Auto-resizing sidenav</p>
-    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      {{ showFiller ? 'Show less' : 'Show more'}}
-    </button> -->
+
 
 
   </mat-drawer>
@@ -55,22 +52,7 @@
           >
             <mat-icon>menu</mat-icon>
           </button>
-          <!-- <span>My App | Es produccion? {{ isProd }} </span>
-          <span class="example-spacer"></span> -->
-          <!-- <button
-            mat-icon-button
-            class="example-icon favorite-icon"
-            aria-label="Example icon-button with heart icon"
-          >
-            <mat-icon>favorite</mat-icon>
-          </button> -->
-          <!-- <button
-            mat-icon-button
-            class="example-icon"
-            aria-label="Example icon-button with share icon"
-          >
-            <mat-icon>share</mat-icon>
-          </button> -->
+
         </div>
         <div class="d-flex justify-content-end">
 
@@ -83,19 +65,7 @@
     <main>
       <router-outlet></router-outlet>
 
-      <!-- <app-cards></app-cards> -->
-
-      <!-- <app-buttons-and-icons></app-buttons-and-icons> -->
-
-      <!-- <app-formularios></app-formularios> -->
-
-      <!-- <app-dialogs></app-dialogs> -->
-
-      <!-- <app-tablas></app-tablas> -->
-
-      <!-- <app-patron-iterador></app-patron-iterador> -->
-
-      <!-- <app-observables></app-observables> -->
+     
     </main>
   </div>
 </mat-drawer-container>
